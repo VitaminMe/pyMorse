@@ -1,13 +1,11 @@
-from pyMorse.encoding import MorseEncoding
+from pyMorse.runner import Runner
 # Morse Code to Text Convertor
 # Chris Fleming
 # 23 November 2018
-def run():
-    """
-    The software will allow the receive text as an input and produce the equivalent message
-    in written morse code as the output
-    """
-    print(MorseEncoding().convert(input("Enter text to convert to Morse: ")))
+"""
+The software will allow the receive text as an input and produce the equivalent message
+in written morse code as the output
+"""
 
 if __name__ == '__main__':
-    run()
+    Runner().run()
