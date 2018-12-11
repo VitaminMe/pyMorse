@@ -1,6 +1,7 @@
 import unittest
 from pyMorse.converter.converter import Converter, InputNotRecognisedError
 from pyMorse.converter.morse_converter import MorseConverter
+from pyMorse.converter.substitute_converter import SubstituteConverter
 
 class TestConverter(unittest.TestCase):
     def test_constructor(self):
@@ -78,5 +79,11 @@ class TestConverter(unittest.TestCase):
         e = MorseConverter()
         self.assertEqual(e.encode("SOS"), "... --- ...")
         self.assertEqual(e.encode("CQ"), "-.-. --.-")
-        self.assertEqual(e.encode("73"), "--... ...--")
-        self.assertEqual(e.encode("Hello World"), ".... . .-.. .-.. --- / .-- --- .-. .-.. -..")
+        self.assertEqual(e.decode("--... ...--"), "73")
+        self.assertEqual(e.decode(".... . .-.. .-.. --- / .-- --- .-. .-.. -.."), "hello world")
+
+    def test_substitute_sample(self):
+        e = SubstituteConverter.simpleSub(3)
+        self.assertEqual(e.encode("ABC"), "def")
+        self.assertEqual(e.decode("def"), "abc")
+        self.assertEqual(e.decode(e.encode("hu32 fdg")), "hu32 fdg")
