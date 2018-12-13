@@ -1,10 +1,16 @@
 from pyMorse.converter.morse_converter import MorseConverter
+from pyMorse.converter.substitute_converter import SubstituteConverter
+from pyMorse.converter.composite_converter import CompositeConverter
+from pyMorse.converter.morse_converter import MorseConverter
 
 class Runner:
     """This class handles running the converter interactively using console.
+
+    Args:
+        shift(int): Shift to be used for encoding/decoding
     """
-    def __init__(self):
-        self.converter = MorseConverter()
+    def __init__(self, shift=5):
+        self.converter = CompositeConverter([SubstituteConverter.simpleSub(shift), MorseConverter()])
         # Store text messages to make testing easier and simpler to replace
         self.choose_msg = "Choose option:\n1. Encode\n2. Decode\n*. Exit\n"
         self.enter_enc = "Enter text to encode: "

@@ -2,8 +2,8 @@ class Converter:
     """This represents the two-way conversion characters.
 
     Args:
-        is_case_sensitive(bool): Indicates if 'a' != 'A' (defaults to false)
-        letter_sep(str): String that seperates each encoded value (defaults to '')
+        is_case_sensitive(:obj:`bool`, optional): Indicates if 'a' != 'A' (defaults to false)
+        letter_sep(:obj:`str`, optional): String that seperates each encoded value (defaults to '')
     """
     def __init__(self, is_case_sensitive=False, letter_sep=""):
         self.enc = {}

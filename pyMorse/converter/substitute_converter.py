@@ -7,7 +7,7 @@ class SubstituteConverter(Converter):
     Args:
         shift(int): Number of letters to shift by (e.g. 1 means A becomes B).
         characters(list): List of characters to be shifted into itself.
-        is_case_sensitive(bool): Indicates if 'a' != 'A' (defaults to false).
+        is_case_sensitive(:obj:`bool`, optional): Indicates if 'a' != 'A' (defaults to false).
     """
     def __init__(self, shift, characters, is_case_sensitive=False):
         super().__init__(is_case_sensitive=is_case_sensitive)
